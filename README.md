@@ -25,7 +25,7 @@ python3 fish_detector.py -i input -o output
 ```
 git clone https://github.com/obsea-upc/obsea-fish-detector-oscar fishdetector
 cd fishdetector
-```
+``` 
 
 2. Build the docker container (this may take several minutes)
 ```bash

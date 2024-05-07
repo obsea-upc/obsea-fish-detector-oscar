@@ -61,7 +61,7 @@ def setup_log(name, path="log"):
     logger.addHandler(consoleHandler)
 
     logger.info("")
-    logger.info(f"===== {logger} =====")
+    logger.info(f"===== {name} =====")
 
     return logger
 
@@ -114,8 +114,8 @@ def yolov8_result_to_list(results, save_image=""):
 
 if __name__ == "__main__":
     argparser = ArgumentParser()
-    argparser.add_argument("-i", "--input", type=str, help="input folder")
-    argparser.add_argument("-o", "--output", type=str, help="output folder")
+    argparser.add_argument("-i", "--input", type=str, help="input folder", required=True)
+    argparser.add_argument("-o", "--output", type=str, help="output folder", default="output")
     argparser.add_argument("--model", type=str, help="YOLOv8 model", default="yolov8x_obsea_19sp_2538img.pt")
     args = argparser.parse_args()
     log = setup_log("YOLO")

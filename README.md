@@ -2,7 +2,7 @@
 
 Simple example on how to containerize a fish detector model trained with data from [OBSEA underwater observatory](https://obsea.es).
 
-### Run the fish detector ###
+## Run the fish detector ##
 To run this script, just two steps are required:
 
 1. Clone this repository:
@@ -18,6 +18,20 @@ pip3 install -r requirements
 ```bash
 python3 fish_detector.py -i input -o output
 ```
+
+## Run the fish detector as Docker application##
+
+1. Build the docker container (this may take several minutes)
+```bash
+docker build . -t fishdetector
+```
+
+2. Run the fish detector application inside a docker container
+```bash
+docker run --rm -v ./input:/input  -v ./output:/output fishdetector python3 fish_detector.py -i /input -o /output
+```
+
+The previous command mounts the `input` and `output` directories in the host filesystem to the container root ('/input'  and '/output) and runs the fish detector python script. The results will be storedin `output` folder in current path. The `--rm` path forces the removal of the container once the task is done.
 
  
 

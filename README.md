@@ -1,9 +1,8 @@
 # OBSEA fish detector for OSCAR #
 
-Simple example on how to containerize a fish detector model trained with data from [OBSEA underwater observatory](https://obsea.es).
+Simple example on how to containerize a fish detector model trained with data from the [OBSEA underwater observatory](https://obsea.es).
 
-## Run the fish detector ##
-To run this script, just two steps are required:
+## Run as python script ##
 
 1. Clone this repository:
 ```
@@ -19,14 +18,19 @@ pip3 install -r requirements
 python3 fish_detector.py -i input -o output
 ```
 
-## Run the fish detector as Docker application##
+## Run as Docker application ##
 
-1. Build the docker container (this may take several minutes)
+1. Clone this repository:
+```
+git clone https://github.com/obsea-upc/obsea-fish-detector-oscar <your_folder>
+```
+
+2. Build the docker container (this may take several minutes)
 ```bash
 docker build . -t fishdetector
 ```
 
-2. Run the fish detector application inside a docker container
+3. Run the fish detector application inside a docker container
 ```bash
 docker run --rm -v ./input:/input  -v ./output:/output fishdetector python3 fish_detector.py -i /input -o /output
 ```
